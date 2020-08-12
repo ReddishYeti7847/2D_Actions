@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float d;     //移動方向
     public float speed; //移動速度
-    public bool isJump;    //ジャンプしたかどうか
+    public int jumpcount;   //ジャンプ回数
+    public bool isJump; //ジャンプし始めたかどうか
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        jumpcount = 0;
     }
 
     // Update is called once per frame
@@ -30,17 +32,26 @@ public class Player : MonoBehaviour
             d = 0;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isJump = true;
+            if (jumpcount < 2)
+            {
+                isJump = true;
+            }
         }
 
-        //移動処理(左右のみ)
+        //移動処理
         rb.velocity = new Vector2(speed * d, rb.velocity.y);
         if (isJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, 5f);
+            jumpcount++;
             isJump = false;
         }
+    }
+
+    public void JumpReset()
+    {
+        jumpcount = 0;
     }
 }

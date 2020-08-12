@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Player_Foot.cs" />
     <Reference Include="Unity.XR.Management">
       <HintPath>D:/趣味制作/Unity/2D_Actions/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
     </Reference>
