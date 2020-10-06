@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(speed * d, rb.velocity.y);
         if (isJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 5f);
+            rb.velocity = new Vector2(rb.velocity.x, 6f);
             jumpcount++;
             isJump = false;
         }
